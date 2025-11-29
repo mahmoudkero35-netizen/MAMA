@@ -1,4 +1,4 @@
-๏ปฟimport { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './style.css'
 
 function App() {
@@ -16,12 +16,12 @@ function App() {
   const loadData = async () => {
     try {
       const [menuResponse, settingsResponse] = await Promise.all([
-        fetch('http://localhost:5000/api/menu'),
-        fetch('http://localhost:5000/api/settings')
+        fetch('https://menu-api.onrender.com/api/menu'),
+        fetch('https://menu-api.onrender.com/api/settings')
       ])
       
       if (!menuResponse.ok || !settingsResponse.ok) {
-        throw new Error('ูุดู ูู ุชุญู…ูู ุงูุจูุงูุงุช')
+        throw new Error('Ýิแ Ýํ สอใํแ วแศํวไวส')
       }
       
       const menuData = await menuResponse.json()
@@ -30,16 +30,16 @@ function App() {
       setMenu(menuData)
       setSettings(settingsData)
       
-      // ุชุญุฏูุฏ ุฃูู ูุฆุฉ ูุดุทุฉ
+      // สอฯํฯ รๆแ Ýฦษ ไิุษ
       if (menuData.length > 0) {
         setActiveCategory(menuData[0].id)
       }
     } catch (error) {
       console.error('Error loading data:', error)
-      // ุจูุงูุงุช ุงูุชุฑุงุถูุฉ ูู ุญุงูุฉ ุงูุฎุทุฃ
+      // ศํวไวส วÝสัวึํษ Ýํ อวแษ วแฮุร
       setSettings({
-        siteName: "ู…ุทุนู…ูุง ุงูุฑุงุฆุน",
-        description: "ุชุฌุฑุจุฉ ุทุนุงู… ุงุณุชุซูุงุฆูุฉ ุชูุชุธุฑู",
+        siteName: "ใฺุใไว วแัวฦฺ",
+        description: "สฬัศษ ฺุวใ วำสหไวฦํษ สไสูั฿",
         primaryColor: "#3b82f6"
       })
     } finally {
@@ -47,19 +47,19 @@ function App() {
     }
   }
 
-  // ุฏุงูุฉ ูู…ุนุงูุฌุฉ ุฃุฎุทุงุก ุชุญู…ูู ุงูุตูุฑ
+  // ฯวแษ แใฺวแฬษ รฮุวม สอใํแ วแีๆั
   const handleImageError = (e) => {
     e.target.style.display = 'none'
     const parent = e.target.parentElement
     if (parent && !parent.querySelector('.image-fallback')) {
       const fallback = document.createElement('div')
       fallback.className = 'image-fallback'
-      fallback.innerHTML = '๐•'
+      fallback.innerHTML = '??'
       parent.appendChild(fallback)
     }
   }
 
-  // ูุชุญ ุงูุตูุฑุฉ ุจุญุฌู… ูุงู…ู
+  // Ýสอ วแีๆัษ ศอฬใ ฿วใแ
   const openImageModal = (imageUrl, productIndex, categoryProducts) => {
     const productsWithImages = categoryProducts.filter(p => p.image_url)
     const actualIndex = productsWithImages.findIndex(p => p.image_url === imageUrl)
@@ -67,13 +67,13 @@ function App() {
     setCurrentImageIndex(actualIndex)
   }
 
-  // ุฅุบูุงู ูุงูุฐุฉ ุงูุตูุฑุฉ
+  // ลÛแวÞ ไวÝะษ วแีๆัษ
   const closeImageModal = () => {
     setSelectedImage(null)
     setCurrentImageIndex(0)
   }
 
-  // ุงูุชููู ุจูู ุงูุตูุฑ
+  // วแสไÞแ ศํไ วแีๆั
   const navigateImages = (direction, categoryProducts) => {
     const productsWithImages = categoryProducts.filter(p => p.image_url)
     let newIndex = currentImageIndex
@@ -88,7 +88,7 @@ function App() {
     setSelectedImage(productsWithImages[newIndex].image_url)
   }
 
-  // ุงูุญุตูู ุนูู ุฌู…ูุน ุงูู…ูุชุฌุงุช ู…ุน ุงูุตูุฑ ูู ุงููุฆุฉ ุงููุดุทุฉ
+  // วแอีๆแ ฺแ์ ฬใํฺ วแใไสฬวส ใฺ วแีๆั Ýํ วแÝฦษ วแไิุษ
   const getProductsWithImages = () => {
     const currentCategoryObj = menu.find(cat => cat.id === activeCategory)
     return currentCategoryObj?.products?.filter(p => p.image_url) || []
@@ -97,7 +97,7 @@ function App() {
   if (loading) {
     return (
       <div className="loading-container">
-        {/* ๐”ฅ ุฎูููุฉ ู…ุชุญุฑูุฉ ููุดุงุดุฉ */}
+        {/* ?? ฮแÝํษ ใสอั฿ษ แแิวิษ */}
         <div className="animated-bg">
           <div className="floating-element"></div>
           <div className="floating-element"></div>
@@ -106,7 +106,7 @@ function App() {
         </div>
         <div className="loading-content">
           <div className="loading-spinner"></div>
-          <p className="loading-text">ุฌุงุฑู ุชุญู…ูู ุงููุงุฆู…ุฉ...</p>
+          <p className="loading-text">ฬวัํ สอใํแ วแÞวฦใษ...</p>
         </div>
       </div>
     )
@@ -118,7 +118,7 @@ function App() {
 
   return (
     <div className="app">
-      {/* ๐”ฅ ุฎูููุฉ ู…ุชุญุฑูุฉ ููุตูุญุฉ */}
+      {/* ?? ฮแÝํษ ใสอั฿ษ แแีÝอษ */}
       <div className="animated-bg">
         <div className="floating-element"></div>
         <div className="floating-element"></div>
@@ -126,42 +126,42 @@ function App() {
         <div className="floating-element"></div>
       </div>
 
-      {/* ุงูููุฏุฑ ุงูุจุทููู */}
+      {/* วแๅํฯั วแศุๆแํ */}
       <header className="hero-header">
         <div className="container">
           <div className="hero-content">
             {settings.logo_url && (
               <img 
-                src={`http://localhost:5000${settings.logo_url}`} 
+                src={`https://menu-api.onrender.com${settings.logo_url}`} 
                 alt={settings.siteName} 
                 className="logo"
                 onError={handleImageError}
               />
             )}
             <h1 className="site-title">
-              {settings.siteName || 'ู…ุทุนู…ูุง ุงูุฑุงุฆุน'}
+              {settings.siteName || 'ใฺุใไว วแัวฦฺ'}
             </h1>
             <p className="site-description">
-              {settings.description || 'ุชุฌุฑุจุฉ ุทุนุงู… ุงุณุชุซูุงุฆูุฉ ุชูุชุธุฑู'}
+              {settings.description || 'สฬัศษ ฺุวใ วำสหไวฦํษ สไสูั฿'}
             </p>
             
-            {/* ู…ุนููู…ุงุช ุงูุงุชุตุงู */}
+            {/* ใฺแๆใวส วแวสีวแ */}
             <div className="contact-info">
               {settings.phone && (
                 <div className="contact-item">
-                  <span>๐“</span>
+                  <span>??</span>
                   <span>{settings.phone}</span>
                 </div>
               )}
               {settings.workingHours && (
                 <div className="contact-item">
-                  <span>๐•’</span>
+                  <span>??</span>
                   <span>{settings.workingHours}</span>
                 </div>
               )}
               {settings.address && (
                 <div className="contact-item">
-                  <span>๐“</span>
+                  <span>??</span>
                   <span>{settings.address}</span>
                 </div>
               )}
@@ -170,12 +170,12 @@ function App() {
         </div>
       </header>
 
-      {/* ุงูู…ุญุชูู ุงูุฑุฆูุณู */}
+      {/* วแใอสๆ์ วแัฦํำํ */}
       <main>
-        {/* ๐”ฅ ุดุจูุฉ ุงูุจุทุงูุงุช ุงูู…ุฑุจุนุฉ ูููุฆุงุช */}
+        {/* ?? ิศ฿ษ วแศุวÞวส วแใัศฺษ แแÝฦวส */}
         <section className="categories-section">
           <div className="container">
-            <h2 className="categories-title">ุชุตูุญ ุฃุตูุงููุง</h2>
+            <h2 className="categories-title">สีÝอ รีไวÝไว</h2>
             <div className="categories-grid">
               {menu.map((category, index) => (
                 <div
@@ -195,10 +195,10 @@ function App() {
                   </span>
                   <h3 className="category-name">{category.name}</h3>
                   <p className="category-description">
-                    {category.description || 'ุงุณุชู…ุชุน ุจุฃุดูู ุงูุฃุทุจุงู'}
+                    {category.description || 'วำสใสฺ ศริๅ์ วแรุศวÞ'}
                   </p>
                   <span className="category-count">
-                    {category.products?.length || 0} ู…ูุชุฌ
+                    {category.products?.length || 0} ใไสฬ
                   </span>
                 </div>
               ))}
@@ -206,12 +206,12 @@ function App() {
           </div>
         </section>
 
-        {/* ุงูู…ูุชุฌุงุช */}
+        {/* วแใไสฬวส */}
         <section className="products-section">
           <div className="container">
             {currentCategory && (
               <h2 className="products-title">
-                {currentCategory.name} - {products.length} ู…ูุชุฌ
+                {currentCategory.name} - {products.length} ใไสฬ
               </h2>
             )}
             
@@ -223,29 +223,29 @@ function App() {
                     className="product-card"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    {/* ๐”ฅ ุตูุฑุฉ ุงูู…ูุชุฌ ูุงุจูุฉ ููููุฑ */}
+                    {/* ?? ีๆัษ วแใไสฬ Þวศแษ แแไÞั */}
                     <div 
                       className="product-image-container"
                       onClick={() => product.image_url && openImageModal(product.image_url, index, products)}
                     >
                       {product.image_url ? (
                         <img 
-                          src={`http://localhost:5000${product.image_url}`} 
+                          src={`https://menu-api.onrender.com${product.image_url}`} 
                           alt={product.name}
                           className="product-image"
                           onError={handleImageError}
                         />
                       ) : (
-                        <div className="image-fallback">๐•</div>
+                        <div className="image-fallback">??</div>
                       )}
                     </div>
                     
-                    {/* ู…ุนููู…ุงุช ุงูู…ูุชุฌ */}
+                    {/* ใฺแๆใวส วแใไสฬ */}
                     <div className="product-info">
                       <div className="product-header">
                         <h3 className="product-name">{product.name}</h3>
                         <span className="product-price">
-                          {product.price} ุฑ.ุณ
+                          {product.price} ั.ำ
                         </span>
                       </div>
                       
@@ -253,11 +253,11 @@ function App() {
                         {product.description}
                       </p>
                       
-                      {/* ุญุงูุฉ ุงูุชููุฑ */}
+                      {/* อวแษ วแสๆÝั */}
                       <div className={`product-status ${
                         product.is_available ? 'status-available' : 'status-unavailable'
                       }`}>
-                        {product.is_available ? '๐ข ู…ุชููุฑ' : '๐”ด ุบูุฑ ู…ุชููุฑ'}
+                        {product.is_available ? '?? ใสๆÝั' : '?? Ûํั ใสๆÝั'}
                       </div>
                     </div>
                   </div>
@@ -265,44 +265,44 @@ function App() {
               </div>
             ) : (
               <div className="empty-state">
-                <div className="empty-icon">๐ฝ๏ธ</div>
-                <h3 className="empty-title">ูุง ุชูุฌุฏ ู…ูุชุฌุงุช ูู ูุฐู ุงููุฆุฉ</h3>
-                <p className="empty-description">ูุนู…ู ุนูู ุฅุถุงูุฉ ู…ูุชุฌุงุช ุฌุฏูุฏุฉ ูุฑูุจุงู</p>
+                <div className="empty-icon">???</div>
+                <h3 className="empty-title">แว สๆฬฯ ใไสฬวส Ýํ ๅะๅ วแÝฦษ</h3>
+                <p className="empty-description">ไฺใแ ฺแ์ ลึวÝษ ใไสฬวส ฬฯํฯษ Þัํศว๐</p>
               </div>
             )}
           </div>
         </section>
       </main>
 
-      {/* ๐”ฅ ูุงูุฐุฉ ุนุฑุถ ุงูุตูุฑุฉ ุจุญุฌู… ูุงู…ู */}
+      {/* ?? ไวÝะษ ฺัึ วแีๆัษ ศอฬใ ฿วใแ */}
       {selectedImage && (
         <div className="image-modal" onClick={closeImageModal}>
           <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <img 
-              src={`http://localhost:5000${selectedImage}`} 
-              alt="ุตูุฑุฉ ุงูู…ูุชุฌ" 
+              src={`https://menu-api.onrender.com${selectedImage}`} 
+              alt="ีๆัษ วแใไสฬ" 
               className="modal-image"
             />
             
-            {/* ุฒุฑ ุงูุฅุบูุงู */}
+            {/* าั วแลÛแวÞ */}
             <button className="modal-close" onClick={closeImageModal}>
-              โ•
+              ?
             </button>
             
-            {/* ุฃุฒุฑุงุฑ ุงูุชููู ุฅุฐุง ูุงู ููุงู ุฃูุซุฑ ู…ู ุตูุฑุฉ */}
+            {/* ราัวั วแสไÞแ ละว ฿วไ ๅไว฿ ร฿หั ใไ ีๆัษ */}
             {productsWithImages.length > 1 && (
               <>
                 <button 
                   className="modal-nav modal-prev"
                   onClick={() => navigateImages('prev', products)}
                 >
-                  โ€น
+                  
                 </button>
                 <button 
                   className="modal-nav modal-next"
                   onClick={() => navigateImages('next', products)}
                 >
-                  โ€บ
+                  
                 </button>
                 <div className="modal-counter">
                   {currentImageIndex + 1} / {productsWithImages.length}
@@ -313,12 +313,12 @@ function App() {
         </div>
       )}
 
-      {/* ุงูููุชุฑ */}
+      {/* วแÝๆสั */}
       <footer className="footer">
         <div className="container">
           <div className="footer-content">
             <h2 className="footer-title">
-              {settings.siteName || 'ู…ุทุนู…ูุง ุงูุฑุงุฆุน'}
+              {settings.siteName || 'ใฺุใไว วแัวฦฺ'}
             </h2>
             
             <div className="social-links">
@@ -329,7 +329,7 @@ function App() {
                   rel="noopener noreferrer" 
                   className="social-link"
                 >
-                  ููุณุจูู
+                  Ýํำศๆ฿
                 </a>
               )}
               {settings.instagram && (
@@ -339,7 +339,7 @@ function App() {
                   rel="noopener noreferrer" 
                   className="social-link"
                 >
-                  ุฅูุณุชุบุฑุงู…
+                  ลไำสÛัวใ
                 </a>
               )}
               {settings.twitter && (
@@ -349,13 +349,13 @@ function App() {
                   rel="noopener noreferrer" 
                   className="social-link"
                 >
-                  ุชููุชุฑ
+                  สๆํสั
                 </a>
               )}
             </div>
             
             <p className="copyright">
-              ยฉ {new Date().getFullYear()} {settings.siteName || 'ู…ุทุนู…ูุง ุงูุฑุงุฆุน'}. ุฌู…ูุน ุงูุญููู ู…ุญููุธุฉ.
+              ฉ {new Date().getFullYear()} {settings.siteName || 'ใฺุใไว วแัวฦฺ'}. ฬใํฺ วแอÞๆÞ ใอÝๆูษ.
             </p>
           </div>
         </div>

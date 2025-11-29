@@ -1,6 +1,6 @@
-ï»¿import axios from 'axios'
+import axios from 'axios'
 
-const API_BASE_URL = 'http://localhost:5000/api'
+const API_BASE_URL = 'https://menu-api.onrender.com/api'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -18,7 +18,7 @@ export const getSiteSettings = async () => {
     console.error('Error fetching site settings:', error)
     // Return default settings if API fails
     return {
-      siteName: "Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø·Ø¹Ø§Ù…",
+      siteName: "ÞÇÆãÉ ÇáØÚÇã",
       logo: null,
       primaryColor: "#3b82f6",
       secondaryColor: "#1e40af",

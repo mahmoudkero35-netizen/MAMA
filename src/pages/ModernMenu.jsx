@@ -1,4 +1,4 @@
-๏ปฟimport React from 'react'
+import React from 'react'
 
 function ModernMenu({ settings }) {
   return (
@@ -9,13 +9,13 @@ function ModernMenu({ settings }) {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <h1 className="text-2xl font-bold text-gray-900">
-                {settings?.siteName || "ูุงุฆู…ุฉ ุงูุทุนุงู…"}
+                {settings?.siteName || "Þวฦใษ วแฺุวใ"}
               </h1>
             </div>
             <nav className="flex space-x-6">
-              <a href="#menu" className="text-gray-700 hover:text-blue-600">ุงููุงุฆู…ุฉ</a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600">ุนู ุงูู…ุทุนู…</a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-600">ุงุชุตู ุจูุง</a>
+              <a href="#menu" className="text-gray-700 hover:text-blue-600">วแÞวฦใษ</a>
+              <a href="#about" className="text-gray-700 hover:text-blue-600">ฺไ วแใฺุใ</a>
+              <a href="#contact" className="text-gray-700 hover:text-blue-600">วสีแ ศไว</a>
             </nav>
           </div>
         </div>
@@ -24,10 +24,10 @@ function ModernMenu({ settings }) {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">ุชุฌุฑุจุฉ ุทุนุงู… ุงุณุชุซูุงุฆูุฉ</h2>
-          <p className="text-xl mb-8">ุงุณุชู…ุชุน ุจุฃุดูู ุงูู…ุฃูููุงุช ูุงูู…ุดุฑูุจุงุช ุงูู…ุฎุชุงุฑุฉ ุจุนูุงูุฉ</p>
+          <h2 className="text-4xl font-bold mb-4">สฬัศษ ฺุวใ วำสหไวฦํษ</h2>
+          <p className="text-xl mb-8">วำสใสฺ ศริๅ์ วแใร฿ๆแวส ๆวแใิัๆศวส วแใฮสวัษ ศฺไวํษ</p>
           <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
-            ุงุณุชุนุฑุถ ุงููุงุฆู…ุฉ
+            วำสฺัึ วแÞวฦใษ
           </button>
         </div>
       </section>
@@ -37,7 +37,7 @@ function ModernMenu({ settings }) {
         <div className="mb-8">
           <input
             type="text"
-            placeholder="ุงุจุญุซ ุนู ุทุจูุ ู…ุดุฑูุจุ ุฃู ูุฌุจุฉ..."
+            placeholder="วศอห ฺไ ุศÞก ใิัๆศก รๆ ๆฬศษ..."
             className="w-full max-w-2xl mx-auto block p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
@@ -47,8 +47,8 @@ function ModernMenu({ settings }) {
           {/* Sample Category */}
           <section className="bg-white rounded-xl shadow-sm border p-8">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-3xl font-bold text-gray-900">ุงูู…ูุจูุงุช</h3>
-              <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">6 ู…ูุชุฌุงุช</span>
+              <h3 className="text-3xl font-bold text-gray-900">วแใÞศแวส</h3>
+              <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">6 ใไสฬวส</span>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -56,14 +56,14 @@ function ModernMenu({ settings }) {
               {[1, 2, 3, 4, 5, 6].map(product => (
                 <div key={product} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                   <div className="bg-gray-200 h-48 rounded-lg mb-4 flex items-center justify-center">
-                    <span className="text-gray-500">ุตูุฑุฉ ุงูู…ูุชุฌ {product}</span>
+                    <span className="text-gray-500">ีๆัษ วแใไสฬ {product}</span>
                   </div>
-                  <h4 className="font-semibold text-lg text-gray-900">ู…ูุชุฌ {product}</h4>
-                  <p className="text-gray-600 text-sm mt-1">ูุตู ู…ุฎุชุตุฑ ููู…ูุชุฌ {product}</p>
+                  <h4 className="font-semibold text-lg text-gray-900">ใไสฬ {product}</h4>
+                  <p className="text-gray-600 text-sm mt-1">ๆีÝ ใฮสีั แแใไสฬ {product}</p>
                   <div className="flex justify-between items-center mt-4">
-                    <span className="text-blue-600 font-bold text-lg">25 ุฑ.ุณ</span>
+                    <span className="text-blue-600 font-bold text-lg">25 ั.ำ</span>
                     <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                      ุฅุถุงูุฉ ุฅูู ุงูุทูุจ
+                      ลึวÝษ ลแ์ วแุแศ
                     </button>
                   </div>
                 </div>
@@ -74,22 +74,22 @@ function ModernMenu({ settings }) {
           {/* Another Category */}
           <section className="bg-white rounded-xl shadow-sm border p-8">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-3xl font-bold text-gray-900">ุงููุฌุจุงุช ุงูุฑุฆูุณูุฉ</h3>
-              <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">8 ู…ูุชุฌุงุช</span>
+              <h3 className="text-3xl font-bold text-gray-900">วแๆฬศวส วแัฦํำํษ</h3>
+              <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">8 ใไสฬวส</span>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map(product => (
                 <div key={product} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                   <div className="bg-gray-200 h-48 rounded-lg mb-4 flex items-center justify-center">
-                    <span className="text-gray-500">ุตูุฑุฉ ุงููุฌุจุฉ {product}</span>
+                    <span className="text-gray-500">ีๆัษ วแๆฬศษ {product}</span>
                   </div>
-                  <h4 className="font-semibold text-lg text-gray-900">ูุฌุจุฉ ุฑุฆูุณูุฉ {product}</h4>
-                  <p className="text-gray-600 text-sm mt-1">ูุตู ู…ุฎุชุตุฑ ูููุฌุจุฉ {product}</p>
+                  <h4 className="font-semibold text-lg text-gray-900">ๆฬศษ ัฦํำํษ {product}</h4>
+                  <p className="text-gray-600 text-sm mt-1">ๆีÝ ใฮสีั แแๆฬศษ {product}</p>
                   <div className="flex justify-between items-center mt-4">
-                    <span className="text-blue-600 font-bold text-lg">45 ุฑ.ุณ</span>
+                    <span className="text-blue-600 font-bold text-lg">45 ั.ำ</span>
                     <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                      ุฅุถุงูุฉ ุฅูู ุงูุทูุจ
+                      ลึวÝษ ลแ์ วแุแศ
                     </button>
                   </div>
                 </div>
@@ -104,21 +104,21 @@ function ModernMenu({ settings }) {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h4 className="text-xl font-bold mb-4">{settings?.siteName || "ูุงุฆู…ุฉ ุงูุทุนุงู…"}</h4>
-              <p className="text-gray-300">ููุฏู… ููู… ุชุฌุฑุจุฉ ุทุนุงู… ุงุณุชุซูุงุฆูุฉ</p>
+              <h4 className="text-xl font-bold mb-4">{settings?.siteName || "Þวฦใษ วแฺุวใ"}</h4>
+              <p className="text-gray-300">ไÞฯใ แ฿ใ สฬัศษ ฺุวใ วำสหไวฦํษ</p>
             </div>
             <div>
-              <h5 className="font-semibold mb-4">ุฑูุงุจุท ุณุฑูุนุฉ</h5>
+              <h5 className="font-semibold mb-4">ัๆวศุ ำัํฺษ</h5>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#" className="hover:text-white">ุงููุงุฆู…ุฉ</a></li>
-                <li><a href="#" className="hover:text-white">ุนู ุงูู…ุทุนู…</a></li>
-                <li><a href="#" className="hover:text-white">ุงุชุตู ุจูุง</a></li>
+                <li><a href="#" className="hover:text-white">วแÞวฦใษ</a></li>
+                <li><a href="#" className="hover:text-white">ฺไ วแใฺุใ</a></li>
+                <li><a href="#" className="hover:text-white">วสีแ ศไว</a></li>
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold mb-4">ู…ุนููู…ุงุช ุงูุงุชุตุงู</h5>
-              <p className="text-gray-300">๐“ +966 123 456 789</p>
-              <p className="text-gray-300">๐“ ุงูุฑูุงุถุ ุงูุณุนูุฏูุฉ</p>
+              <h5 className="font-semibold mb-4">ใฺแๆใวส วแวสีวแ</h5>
+              <p className="text-gray-300">?? +966 123 456 789</p>
+              <p className="text-gray-300">?? วแัํวึก วแำฺๆฯํษ</p>
             </div>
           </div>
         </div>

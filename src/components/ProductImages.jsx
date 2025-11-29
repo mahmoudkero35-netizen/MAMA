@@ -1,4 +1,4 @@
-ï»¿import { useState } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 function ProductImages({ images, showLarge = false, onImageClick }) {
@@ -16,14 +16,14 @@ function ProductImages({ images, showLarge = false, onImageClick }) {
   const getImageUrl = (imagePath) => {
     if (!imagePath) return null
     if (imagePath.startsWith('http')) return imagePath
-    if (imagePath.startsWith('/uploads/')) return `http://localhost:5000${imagePath}`
-    return `http://localhost:5000/uploads/${imagePath}`
+    if (imagePath.startsWith('/uploads/')) return `https://menu-api.onrender.com${imagePath}`
+    return `https://menu-api.onrender.com/uploads/${imagePath}`
   }
 
   if (!images || images.length === 0) {
     return (
       <div className={`${showLarge ? 'w-full h-96' : 'h-48'} bg-gray-200 rounded-lg flex items-center justify-center`}>
-        <span className="text-gray-500">Ù„Ø§ ØªÙˆØ¬Ø¯ ØµÙˆØ±Ø©</span>
+        <span className="text-gray-500">áÇ ÊæÌÏ ÕæÑÉ</span>
       </div>
     )
   }
@@ -81,13 +81,13 @@ function ProductImages({ images, showLarge = false, onImageClick }) {
               onClick={(e) => { e.stopPropagation(); prevImage() }}
               className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 rounded-full p-2 hover:bg-opacity-100 transition-all"
             >
-              â€¹
+              ‹
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); nextImage() }}
               className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 rounded-full p-2 hover:bg-opacity-100 transition-all"
             >
-              â€º
+              ›
             </button>
           </>
         )}

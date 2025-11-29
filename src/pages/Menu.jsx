@@ -1,4 +1,4 @@
-ï»¿import { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import CategoryCard from "../components/CategoryCard.jsx"
 import { getMenu } from "../api/menu.js"
@@ -28,7 +28,7 @@ function Menu({ settings }) {
       setCategories(menuData)
     } catch (error) {
       console.error("Error loading menu:", error)
-      setError("ÙØ´Ù„ ÙÙŠ ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©. ØªØ£ÙƒØ¯ Ù…Ù† ØªØ´ØºÙŠÙ„ Ø§Ù„Ø®Ø§Ø¯Ù… Ø§Ù„Ø®Ù„ÙÙŠ.")
+      setError("İÔá İí ÊÍãíá ÇáŞÇÆãÉ. ÊÃßÏ ãä ÊÔÛíá ÇáÎÇÏã ÇáÎáİí.")
     } finally {
       setLoading(false)
     }
@@ -52,8 +52,8 @@ function Menu({ settings }) {
   const getLogoUrl = (logoPath) => {
     if (!logoPath) return null
     if (logoPath.startsWith('http')) return logoPath
-    if (logoPath.startsWith('/uploads/')) return `http://localhost:5000${logoPath}`
-    return `http://localhost:5000/uploads/${logoPath}`
+    if (logoPath.startsWith('/uploads/')) return `https://menu-api.onrender.com${logoPath}`
+    return `https://menu-api.onrender.com/uploads/${logoPath}`
   }
 
   if (loading) {
@@ -61,7 +61,7 @@ function Menu({ settings }) {
       <div className="min-h-screen flex items-center justify-center" style={styles.background}>
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 mx-auto" style={{ borderColor: styles.text.color }}></div>
-          <p className="mt-4" style={{ color: styles.text.color }}>Ø¬Ø§Ø±ÙŠ ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©...</p>
+          <p className="mt-4" style={{ color: styles.text.color }}>ÌÇÑí ÊÍãíá ÇáŞÇÆãÉ...</p>
         </div>
       </div>
     )
@@ -71,15 +71,15 @@ function Menu({ settings }) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={styles.background}>
         <div className="text-center">
-          <div className="text-red-500 text-6xl mb-4">âš ï¸</div>
-          <h2 className="text-2xl font-bold mb-2" style={{ color: styles.text.color }}>Ø®Ø·Ø£ ÙÙŠ Ø§Ù„Ø§ØªØµØ§Ù„</h2>
+          <div className="text-red-500 text-6xl mb-4">??</div>
+          <h2 className="text-2xl font-bold mb-2" style={{ color: styles.text.color }}>ÎØÃ İí ÇáÇÊÕÇá</h2>
           <p className="mb-4" style={{ color: styles.text.color }}>{error}</p>
           <button
             onClick={loadMenu}
             className="px-6 py-2 rounded-lg transition-colors"
             style={{ backgroundColor: styles.header.backgroundColor, color: 'white' }}
           >
-            Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø©
+            ÅÚÇÏÉ ÇáãÍÇæáÉ
           </button>
         </div>
       </div>
@@ -90,7 +90,7 @@ function Menu({ settings }) {
 
   return (
     <div className="min-h-screen" style={styles.background}>
-      {/* Header - Ø¨Ø¯ÙˆÙ† Ù„ÙˆØ¬Ùˆ */}
+      {/* Header - ÈÏæä áæÌæ */}
       <header className="shadow-sm border-b" style={styles.header}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center py-6">
@@ -100,7 +100,7 @@ function Menu({ settings }) {
               className="text-4xl font-bold text-white text-shadow text-center"
               style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
             >
-              {settings?.siteName || "Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø·Ø¹Ø§Ù…"}
+              {settings?.siteName || "ŞÇÆãÉ ÇáØÚÇã"}
             </motion.h1>
           </div>
         </div>
@@ -108,7 +108,7 @@ function Menu({ settings }) {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Logo Section - ÙÙŠ Ù†Øµ Ø§Ù„Ù…ÙˆÙ‚Ø¹ */}
+        {/* Logo Section - İí äÕ ÇáãæŞÚ */}
         {logoUrl && (
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
@@ -143,10 +143,10 @@ function Menu({ settings }) {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold mb-4" style={{ color: styles.text.color }}>
-            Ù…Ø±Ø­Ø¨Ø§Ù‹ Ø¨ÙƒÙ… ÙÙŠ {settings?.siteName || "Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø·Ø¹Ø§Ù…"}
+            ãÑÍÈÇğ Èßã İí {settings?.siteName || "ŞÇÆãÉ ÇáØÚÇã"}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed" style={{ color: styles.text.color }}>
-            Ø§Ø³ØªÙ…ØªØ¹ Ø¨Ø£Ø´Ù‡Ù‰ Ø§Ù„Ù…Ø£ÙƒÙˆÙ„Ø§Øª ÙˆØ§Ù„Ù…Ø´Ø±ÙˆØ¨Ø§Øª Ø§Ù„Ù…Ø®ØªØ§Ø±Ø© Ø¨Ø¹Ù†Ø§ÙŠØ© Ù…Ù† Ø£Ø¬Ù„Ùƒ
+            ÇÓÊãÊÚ ÈÃÔåì ÇáãÃßæáÇÊ æÇáãÔÑæÈÇÊ ÇáãÎÊÇÑÉ ÈÚäÇíÉ ãä ÃÌáß
           </p>
         </motion.div>
 
@@ -166,7 +166,7 @@ function Menu({ settings }) {
 
         {categories.length === 0 && (
           <div className="text-center py-12">
-            <p style={{ color: styles.text.color }}>Ù„Ø§ ØªÙˆØ¬Ø¯ Ø¹Ù†Ø§ØµØ± ÙÙŠ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø­Ø§Ù„ÙŠØ§Ù‹</p>
+            <p style={{ color: styles.text.color }}>áÇ ÊæÌÏ ÚäÇÕÑ İí ÇáŞÇÆãÉ ÍÇáíÇğ</p>
           </div>
         )}
 
@@ -189,10 +189,10 @@ function Menu({ settings }) {
               />
               <div>
                 <h3 className="text-xl font-bold" style={{ color: styles.text.color }}>
-                  {settings?.siteName || "Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø·Ø¹Ø§Ù…"}
+                  {settings?.siteName || "ŞÇÆãÉ ÇáØÚÇã"}
                 </h3>
                 <p className="text-gray-600" style={{ color: styles.text.color }}>
-                  Ù†Ù‚Ø¯Ù… Ù„ÙƒÙ… Ø£ÙØ¶Ù„ Ù…Ø§ Ù„Ø¯ÙŠÙ†Ø§
+                  äŞÏã áßã ÃİÖá ãÇ áÏíäÇ
                 </p>
               </div>
             </div>

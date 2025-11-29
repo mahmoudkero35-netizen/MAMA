@@ -1,4 +1,4 @@
-ï»¿import { motion } from "framer-motion"
+import { motion } from "framer-motion"
 import ProductCard from "./ProductCard.jsx"
 
 function CategoryCard({ category, primaryColor }) {
@@ -25,7 +25,7 @@ function CategoryCard({ category, primaryColor }) {
       </div>
 
       {(!category.products || category.products.length === 0) && (
-        <p className="text-gray-500 text-center py-4">Ù„Ø§ ØªÙˆØ¬Ø¯ Ù…Ù†ØªØ¬Ø§Øª ÙÙŠ Ù‡Ø°Ù‡ Ø§Ù„ÙØ¦Ø©</p>
+        <p className="text-gray-500 text-center py-4">áÇ ÊæÌÏ ãäÊÌÇÊ İí åĞå ÇáİÆÉ</p>
       )}
     </section>
   )

@@ -1,4 +1,4 @@
-ï»¿import { useState } from "react"
+import { useState } from "react"
 import { motion } from "framer-motion"
 import ProductImages from "./ProductImages.jsx"
 
@@ -31,11 +31,11 @@ function ProductCard({ product, primaryColor }) {
               className="font-bold text-lg"
               style={{ color: primaryColor || '#059669' }}
             >
-              {product.price ? `$${product.price}` : 'Ø§Ù„Ø³Ø¹Ø± ØºÙŠØ± Ù…ØªÙˆÙØ±'}
+              {product.price ? `$${product.price}` : 'ÇáÓÚÑ ÛíÑ ãÊæİÑ'}
             </span>
             
             {product.is_available === false && (
-              <span className="text-red-500 text-sm font-medium">ØºÙŠØ± Ù…ØªÙˆÙØ±</span>
+              <span className="text-red-500 text-sm font-medium">ÛíÑ ãÊæİÑ</span>
             )}
           </div>
         </div>

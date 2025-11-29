@@ -1,4 +1,4 @@
-﻿import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import AnimatedProductCard from "./AnimatedProductCard.jsx"
 
 function CategoryCard({ category, primaryColor, searchTerm, index }) {
@@ -76,7 +76,7 @@ function CategoryCard({ category, primaryColor, searchTerm, index }) {
             >
               {category.products?.length || 0}
             </motion.span>
-            <span className="text-gray-300 text-lg">منتج</span>
+            <span className="text-gray-300 text-lg">����</span>
           </motion.div>
         </div>
       </motion.div>
@@ -129,9 +129,9 @@ function CategoryCard({ category, primaryColor, searchTerm, index }) {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="text-6xl mb-4"
               >
-                😔
+                ??
               </motion.div>
-              <p className="text-gray-400 text-xl">لا توجد منتجات في هذه الفئة</p>
+              <p className="text-gray-400 text-xl">�� ���� ������ �� ��� �����</p>
             </motion.div>
           )}
         </AnimatePresence>

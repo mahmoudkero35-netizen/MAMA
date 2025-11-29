@@ -1,4 +1,4 @@
-๏ปฟimport { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { getMenu } from "../api/menu.js"
 
@@ -53,13 +53,13 @@ const ProductCard = ({ product, index }) => {
       <div className="relative h-48 bg-gradient-to-br from-blue-100 to-purple-100 overflow-hidden">
         {product.images && product.images.length > 0 ? (
           <img 
-            src={`http://localhost:5000/uploads/${product.images[0].image_path}`}
+            src={`https://menu-api.onrender.com/uploads/${product.images[0].image_path}`}
             alt={product.name}
             className="w-full h-full object-cover"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <span className="text-gray-400 text-4xl">๐ฝ๏ธ</span>
+            <span className="text-gray-400 text-4xl">???</span>
           </div>
         )}
         
@@ -77,7 +77,7 @@ const ProductCard = ({ product, index }) => {
                 whileTap={{ scale: 0.9 }}
                 className="bg-white text-gray-900 px-4 py-2 rounded-lg font-medium"
               >
-                ุนุฑุถ ุงูุชูุงุตูู
+                ฺัึ วแสÝวีํแ
               </motion.button>
             </motion.div>
           )}
@@ -94,7 +94,7 @@ const ProductCard = ({ product, index }) => {
           animate={{ scale: 1 }}
           whileHover={{ scale: 1.1 }}
         >
-          {product.is_available ? 'ู…ุชููุฑ' : 'ุบูุฑ ู…ุชููุฑ'}
+          {product.is_available ? 'ใสๆÝั' : 'Ûํั ใสๆÝั'}
         </motion.div>
       </div>
 
@@ -130,7 +130,7 @@ const ProductCard = ({ product, index }) => {
             className="font-bold text-xl text-blue-600"
             whileHover={{ scale: 1.05 }}
           >
-            {product.price} ุฑ.ุณ
+            {product.price} ั.ำ
           </motion.span>
           
           <motion.button
@@ -143,7 +143,7 @@ const ProductCard = ({ product, index }) => {
             }`}
             disabled={!product.is_available}
           >
-            {product.is_available ? 'ุฅุถุงูุฉ ุฅูู ุงูุทูุจ' : 'ุบูุฑ ู…ุชููุฑ'}
+            {product.is_available ? 'ลึวÝษ ลแ์ วแุแศ' : 'Ûํั ใสๆÝั'}
           </motion.button>
         </motion.div>
       </div>
@@ -203,7 +203,7 @@ const CategorySection = ({ category, index }) => {
               >
                 {category.products?.length || 0}
               </motion.span>
-              <span className="text-gray-600 text-lg">ู…ูุชุฌ</span>
+              <span className="text-gray-600 text-lg">ใไสฬ</span>
             </motion.div>
           </div>
         </motion.div>
@@ -238,9 +238,9 @@ const CategorySection = ({ category, index }) => {
                   transition={{ duration: 2, repeat: Infinity }}
                   className="text-6xl mb-4"
                 >
-                  ๐ฝ๏ธ
+                  ???
                 </motion.div>
-                <p className="text-gray-500 text-xl">ูุง ุชูุฌุฏ ู…ูุชุฌุงุช ูู ูุฐู ุงููุฆุฉ</p>
+                <p className="text-gray-500 text-xl">แว สๆฬฯ ใไสฬวส Ýํ ๅะๅ วแÝฦษ</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -275,7 +275,7 @@ function AnimatedMenu({ settings }) {
       setCategories(menuData)
     } catch (error) {
       console.error("Error loading menu:", error)
-      setError("ุชุนุฐุฑ ุชุญู…ูู ุงููุงุฆู…ุฉ. ุชุฃูุฏ ู…ู ุชุดุบูู ุงูุฎุงุฏู… ุงูุฎููู ุนูู ุงูู…ููุฐ 5000.")
+      setError("สฺะั สอใํแ วแÞวฦใษ. สร฿ฯ ใไ สิÛํแ วแฮวฯใ วแฮแÝํ ฺแ์ วแใไÝะ 5000.")
     } finally {
       setLoading(false)
     }
@@ -284,8 +284,8 @@ function AnimatedMenu({ settings }) {
   const getLogoUrl = (logoPath) => {
     if (!logoPath) return null
     if (logoPath.startsWith('http')) return logoPath
-    if (logoPath.startsWith('/uploads/')) return `http://localhost:5000${logoPath}`
-    return `http://localhost:5000/uploads/${logoPath}`
+    if (logoPath.startsWith('/uploads/')) return `https://menu-api.onrender.com${logoPath}`
+    return `https://menu-api.onrender.com/uploads/${logoPath}`
   }
 
   const filteredCategories = categories
@@ -298,7 +298,7 @@ function AnimatedMenu({ settings }) {
     }))
     .filter(category => category.products?.length > 0)
 
-  const allCategories = [{ id: null, name: "ุงููู", icon: "๐“" }, ...categories]
+  const allCategories = [{ id: null, name: "วแ฿แ", icon: "??" }, ...categories]
 
   if (loading) {
     return (
@@ -318,7 +318,7 @@ function AnimatedMenu({ settings }) {
             animate={{ opacity: 1 }}
             className="text-gray-600 text-lg"
           >
-            ุฌุงุฑู ุชุญู…ูู ุงููุงุฆู…ุฉ ุงูุณุญุฑูุฉ...
+            ฬวัํ สอใํแ วแÞวฦใษ วแำอัํษ...
           </motion.p>
         </motion.div>
       </div>
@@ -338,9 +338,9 @@ function AnimatedMenu({ settings }) {
             transition={{ type: "spring", duration: 0.5 }}
             className="text-6xl mb-4"
           >
-            โก
+            ?
           </motion.div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">ุฎุทุฃ ูู ุงูุงุชุตุงู</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">ฮุร Ýํ วแวสีวแ</h2>
           <p className="text-gray-600 mb-6">{error}</p>
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.4)" }}
@@ -348,7 +348,7 @@ function AnimatedMenu({ settings }) {
             onClick={loadMenu}
             className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all"
           >
-            ุฅุนุงุฏุฉ ุงูู…ุญุงููุฉ
+            ลฺวฯษ วแใอวๆแษ
           </motion.button>
         </motion.div>
       </div>
@@ -397,13 +397,13 @@ function AnimatedMenu({ settings }) {
                 }`}
                 style={{ textShadow: isScrolled ? 'none' : '2px 2px 20px rgba(0,0,0,0.5)' }}
               >
-                {settings?.siteName || "ู…ุทุนู…ูุง ุงูุฑุงุฆุน"}
+                {settings?.siteName || "ใฺุใไว วแัวฦฺ"}
               </motion.h1>
             </motion.div>
 
             {/* Navigation */}
             <nav className="hidden md:flex items-center space-x-8 space-x-reverse">
-              {['ุงููุงุฆู…ุฉ', 'ุนู ุงูู…ุทุนู…', 'ุงุชุตู ุจูุง'].map((item, index) => (
+              {['วแÞวฦใษ', 'ฺไ วแใฺุใ', 'วสีแ ศไว'].map((item, index) => (
                 <motion.a
                   key={item}
                   href={`#${item}`}
@@ -454,7 +454,7 @@ function AnimatedMenu({ settings }) {
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, type: "spring" }}
           >
-            {settings?.siteName || "ู…ุทุนู…ูุง ุงูุฑุงุฆุน"}
+            {settings?.siteName || "ใฺุใไว วแัวฦฺ"}
           </motion.h2>
           
           <motion.p 
@@ -463,7 +463,7 @@ function AnimatedMenu({ settings }) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            ุงุณุชู…ุชุน ุจุฑุญูุฉ ุทุนุงู… ุณุญุฑูุฉ ู…ุน ุฃุดูู ุงูู…ุฃูููุงุช ูุงูู…ุดุฑูุจุงุช
+            วำสใสฺ ศัอแษ ฺุวใ ำอัํษ ใฺ ริๅ์ วแใร฿ๆแวส ๆวแใิัๆศวส
           </motion.p>
 
           <motion.div
@@ -480,7 +480,7 @@ function AnimatedMenu({ settings }) {
               whileTap={{ scale: 0.95 }}
               className="bg-white text-gray-900 px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-2xl transition-all"
             >
-              ุงุณุชุนุฑุถ ุงููุงุฆู…ุฉ
+              วำสฺัึ วแÞวฦใษ
             </motion.button>
             
             <motion.button
@@ -488,7 +488,7 @@ function AnimatedMenu({ settings }) {
               whileTap={{ scale: 0.95 }}
               className="border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold text-lg backdrop-blur-sm hover:bg-white/10 transition-all"
             >
-              ุชุนุฑู ุนูููุง
+              สฺัÝ ฺแํไว
             </motion.button>
           </motion.div>
         </motion.div>
@@ -500,12 +500,12 @@ function AnimatedMenu({ settings }) {
           transition={{ duration: 2, repeat: Infinity }}
         >
           <div className="text-center">
-            <div className="text-sm mb-2 opacity-80">ู…ุฑุฑ ููุฃุณูู</div>
+            <div className="text-sm mb-2 opacity-80">ใัั แแรำÝแ</div>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              โ“
+              ?
             </motion.div>
           </div>
         </motion.div>
@@ -527,7 +527,7 @@ function AnimatedMenu({ settings }) {
                 <motion.div className="relative">
                   <input
                     type="text"
-                    placeholder="๐” ุงุจุญุซ ุนู ุทุจูุ ู…ุดุฑูุจุ ุฃู ูุฌุจุฉ..."
+                    placeholder="?? วศอห ฺไ ุศÞก ใิัๆศก รๆ ๆฬศษ..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full bg-white border border-gray-300 rounded-2xl px-6 py-4 pl-14 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900 placeholder-gray-500 shadow-lg"
@@ -602,13 +602,13 @@ function AnimatedMenu({ settings }) {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="text-8xl mb-6"
               >
-                ๐ฝ๏ธ
+                ???
               </motion.div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">ูุง ุชูุฌุฏ ูุชุงุฆุฌ ุณุญุฑูุฉ</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">แว สๆฬฯ ไสวฦฬ ำอัํษ</h3>
               <p className="text-gray-600 text-lg">
                 {searchTerm || selectedCategory 
-                  ? "ุฌุฑุจ ุงูุจุญุซ ุจููู…ุงุช ุฃุฎุฑู ุฃู ุงุฎุชุฑ ูุฆุฉ ู…ุฎุชููุฉ" 
-                  : "ุณูุชู… ุฅุถุงูุฉ ุงูู…ูุชุฌุงุช ูุฑูุจุงู"
+                  ? "ฬัศ วแศอห ศ฿แใวส รฮั์ รๆ วฮสั Ýฦษ ใฮสแÝษ" 
+                  : "ำํสใ ลึวÝษ วแใไสฬวส Þัํศว๐"
                 }
               </p>
             </motion.div>
@@ -641,33 +641,33 @@ function AnimatedMenu({ settings }) {
                 />
               )}
               <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                {settings?.siteName || "ู…ุทุนู…ูุง ุงูุฑุงุฆุน"}
+                {settings?.siteName || "ใฺุใไว วแัวฦฺ"}
               </h3>
-              <p className="text-gray-400 text-lg">ููุฏู… ููู… ุชุฌุฑุจุฉ ุทุนุงู… ุณุญุฑูุฉ ูุง ุชููุณู</p>
+              <p className="text-gray-400 text-lg">ไÞฯใ แ฿ใ สฬัศษ ฺุวใ ำอัํษ แว ส๕ไำ์</p>
             </div>
 
             {/* Contact Info */}
             <div className="text-center">
-              <h4 className="text-xl font-semibold mb-6">ู…ุนููู…ุงุช ุงูุงุชุตุงู</h4>
+              <h4 className="text-xl font-semibold mb-6">ใฺแๆใวส วแวสีวแ</h4>
               <div className="space-y-3 text-gray-400">
                 <motion.p whileHover={{ x: 5 }} className="flex items-center justify-center gap-2">
-                  <span className="text-2xl">๐“</span> +966 123 456 789
+                  <span className="text-2xl">??</span> +966 123 456 789
                 </motion.p>
                 <motion.p whileHover={{ x: 5 }} className="flex items-center justify-center gap-2">
-                  <span className="text-2xl">๐“ง</span> info@restaurant.com
+                  <span className="text-2xl">??</span> info@restaurant.com
                 </motion.p>
                 <motion.p whileHover={{ x: 5 }} className="flex items-center justify-center gap-2">
-                  <span className="text-2xl">๐“</span> ุงูุฑูุงุถุ ุงูุณุนูุฏูุฉ
+                  <span className="text-2xl">??</span> วแัํวึก วแำฺๆฯํษ
                 </motion.p>
               </div>
             </div>
 
             {/* Hours */}
             <div className="text-center md:text-left">
-              <h4 className="text-xl font-semibold mb-6">ุฃููุงุช ุงูุนู…ู</h4>
+              <h4 className="text-xl font-semibold mb-6">รๆÞวส วแฺใแ</h4>
               <div className="space-y-3 text-gray-400">
-                <motion.p whileHover={{ x: -5 }}>ุงูุฃุญุฏ - ุงูุฎู…ูุณ: ูจ ุต - ูกูข ู…</motion.p>
-                <motion.p whileHover={{ x: -5 }}>ุงูุฌู…ุนุฉ - ุงูุณุจุช: ูค ู… - ูกูข ู…</motion.p>
+                <motion.p whileHover={{ x: -5 }}>วแรอฯ - วแฮใํำ: 8 ี - 12 ใ</motion.p>
+                <motion.p whileHover={{ x: -5 }}>วแฬใฺษ - วแำศส: 4 ใ - 12 ใ</motion.p>
               </div>
             </div>
           </div>
@@ -683,7 +683,7 @@ function AnimatedMenu({ settings }) {
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              ยฉ 2024 {settings?.siteName || "ู…ุทุนู…ูุง ุงูุฑุงุฆุน"}. ุฌู…ูุน ุงูุญููู ู…ุญููุธุฉ.
+              ฉ 2024 {settings?.siteName || "ใฺุใไว วแัวฦฺ"}. ฬใํฺ วแอÞๆÞ ใอÝๆูษ.
             </motion.p>
           </motion.div>
         </div>

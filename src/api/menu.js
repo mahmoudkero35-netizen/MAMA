@@ -1,6 +1,6 @@
-ï»¿import axios from 'axios'
+import axios from 'axios'
 
-const API_BASE_URL = 'http://localhost:5000/api'
+const API_BASE_URL = 'https://menu-api.onrender.com/api'
 
 // Create axios instance with better error handling
 const api = axios.create({
@@ -31,21 +31,21 @@ export const getMenu = async () => {
     return [
       {
         id: 1,
-        name: "Ø§Ù„Ù…Ù‚Ø¨Ù„Ø§Øª",
-        description: "Ù…Ù‚Ø¨Ù„Ø§Øª Ù„Ø°ÙŠØ°Ø© Ù„Ø¨Ø¯Ø¡ ÙˆØ¬Ø¨ØªÙƒ",
+        name: "ÇáãŞÈáÇÊ",
+        description: "ãŞÈáÇÊ áĞíĞÉ áÈÏÁ æÌÈÊß",
         products: [
           {
             id: 1,
-            name: "Ø³Ù„Ø·Ø© ÙŠÙˆÙ†Ø§Ù†ÙŠØ©",
-            description: "Ø³Ù„Ø·Ø© Ø·Ø§Ø²Ø¬Ø© Ù…Ø¹ Ø§Ù„Ø®Ø¶Ø§Ø± ÙˆØ§Ù„Ø²ÙŠØªÙˆÙ† ÙˆØ§Ù„Ø¬Ø¨Ù†Ø© Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡",
+            name: "ÓáØÉ íæäÇäíÉ",
+            description: "ÓáØÉ ØÇÒÌÉ ãÚ ÇáÎÖÇÑ æÇáÒíÊæä æÇáÌÈäÉ ÇáÈíÖÇÁ",
             price: 25,
             is_available: true,
             images: []
           },
           {
             id: 2,
-            name: "Ø­Ù…Øµ Ø¨Ø§Ù„Ø·Ø­ÙŠÙ†Ø©",
-            description: "Ø­Ù…Øµ Ø·Ø§Ø²Ø¬ Ù…Ø¹ Ø§Ù„Ø·Ø­ÙŠÙ†Ø© ÙˆØ²ÙŠØª Ø§Ù„Ø²ÙŠØªÙˆÙ†",
+            name: "ÍãÕ ÈÇáØÍíäÉ",
+            description: "ÍãÕ ØÇÒÌ ãÚ ÇáØÍíäÉ æÒíÊ ÇáÒíÊæä",
             price: 18,
             is_available: true,
             images: []
@@ -54,21 +54,21 @@ export const getMenu = async () => {
       },
       {
         id: 2,
-        name: "Ø§Ù„ÙˆØ¬Ø¨Ø§Øª Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©",
-        description: "ÙˆØ¬Ø¨Ø§Øª Ø±Ø¦ÙŠØ³ÙŠØ© Ø´Ù‡ÙŠØ© ÙˆÙ…Ø´Ø¨Ø¹Ø©",
+        name: "ÇáæÌÈÇÊ ÇáÑÆíÓíÉ",
+        description: "æÌÈÇÊ ÑÆíÓíÉ ÔåíÉ æãÔÈÚÉ",
         products: [
           {
             id: 3,
-            name: "Ø´Ø§ÙˆØ±Ù…Ø§ Ù„Ø­Ù…",
-            description: "Ø´Ø§ÙˆØ±Ù…Ø§ Ù„Ø­Ù… Ù…Ø´ÙˆÙŠØ© Ù…Ø¹ Ø§Ù„Ø®Ø¶Ø§Ø± ÙˆØ§Ù„ØµÙ„ØµØ§Øª",
+            name: "ÔÇæÑãÇ áÍã",
+            description: "ÔÇæÑãÇ áÍã ãÔæíÉ ãÚ ÇáÎÖÇÑ æÇáÕáÕÇÊ",
             price: 35,
             is_available: true,
             images: []
           },
           {
             id: 4,
-            name: "ÙƒØ¨Ø© Ù…Ù‚Ù„ÙŠØ©",
-            description: "ÙƒØ¨Ø© Ù…Ù‚Ù„ÙŠØ© Ù…Ù‚Ø±Ù…Ø´Ø© Ù…Ø¹ Ø§Ù„Ù„Ø­Ù… ÙˆØ§Ù„ØªÙˆØ§Ø¨Ù„",
+            name: "ßÈÉ ãŞáíÉ",
+            description: "ßÈÉ ãŞáíÉ ãŞÑãÔÉ ãÚ ÇááÍã æÇáÊæÇÈá",
             price: 28,
             is_available: true,
             images: []
@@ -86,7 +86,7 @@ export const getSettings = async () => {
   } catch (error) {
     console.error('Error fetching settings:', error)
     return {
-      siteName: "Ù…Ø·Ø¹Ù…Ù†Ø§ Ø§Ù„Ø±Ø§Ø¦Ø¹",
+      siteName: "ãØÚãäÇ ÇáÑÇÆÚ",
       logo: null,
       primaryColor: "#3b82f6",
       secondaryColor: "#1e40af",
